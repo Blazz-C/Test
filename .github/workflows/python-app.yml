@@ -32,7 +32,7 @@ jobs:
     - name: Run tests with pytest
       run: pytest Test_case/testpytest.py -v --disable-warnings
     - name: Run tests with pytest and generate report
-      run: pytest --junitxml=pytest_report.xml
+      run: pytest Test_case/testpytest.py --junitxml=pytest_report.xml
     
     - name: Upload test report
       uses: actions/upload-artifact@v4
