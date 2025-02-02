@@ -30,7 +30,7 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Run tests with pytest
-      run: pytest Test/Test_case/testpytest.py -v --disable-warnings
+      run: pytest Test_case/testpytest.py -v --disable-warnings
     - name: Run tests with pytest and generate report
       run: pytest --junitxml=pytest_report.xml
     
