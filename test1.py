@@ -17,12 +17,13 @@ print(df.head())
 #list all columns
 print(df.columns)
 
-df["Country"]  # Access 'Country' column
-df[["Country", "Total_Medals"]]  # Access multiple columns
+df["Country name"]  # Access 'Country' column
+df[["Country name", "Total_Medals"]]  # Access multiple columns
 print(df.iloc[0])  # First row (index-based)
 print(df.iloc[-1]) # Last row
 print(df.iloc[5:10])  # Rows from index 5 to 9
-print(df.loc[df["Country"] == "India"])  # Get India's Olympic stats
+print(df.loc[df["Country name"] == "India"])  # Get India's Olympic stats
+"""
 # Rename the 'Country' column to 'Country name'
 df.rename(columns={'Country': 'Country name'}, inplace=True)
 
@@ -34,3 +35,12 @@ df['Country name'] = df['Country name'].apply(lambda x: x.split('(')[0].strip() 
 
 # Save the cleaned dataset back to the CSV file
 df.to_csv('olympics_cleaned.csv', index=False)
+"""
+# Total medals won in Summer vs. Winter Olympics
+print(df.groupby("Summer_Games")["Total_Medals"].sum())
+
+# Add a new column: Total Gold to Total Medals ratio
+df["Gold_Medal_Ratio"] = df["Total_Gold"] / df["Total_Medals"]
+
+# Replace missing values (if any) with 0
+df.fillna(0, inplace=True)
