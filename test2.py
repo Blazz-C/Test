@@ -24,5 +24,6 @@ medal_count = df_selected.groupby(["NOC", "Season", "Sport"])["Medal"].value_cou
 
 print(medal_count)
 
-medal_count.to_csv('medal_count.csv')  # Save the medal count to a new CSV file
+ # medal_count.to_csv('medal_count.csv')  # Save the medal count to a new CSV file
+
 
